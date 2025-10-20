@@ -6,8 +6,14 @@ public class Parser {
     private static String separator = ",|:";
 
     public static ArrayList<Integer> splitBySeparator(String equation) {
-        equation = checkCustomSeparator(equation);
+        if (equation.length() > 4) {
+            equation = checkCustomSeparator(equation);
+        }
         ArrayList<Integer> numbers = new ArrayList<>();
+
+        if (equation.isEmpty()) {
+            return numbers;
+        }
         String[] stringNumbers = equation.split(separator);
 
         for (String stringNum : stringNumbers) {
@@ -20,7 +26,6 @@ public class Parser {
             checkNumberIsPositive(number);
             numbers.add(number);
         }
-        checkNumbersIsEmpty(numbers);
         return numbers;
     }
 
@@ -41,11 +46,5 @@ public class Parser {
 
     private static void addCustomSeparator(String customSeparatorString) {
         separator = separator + "|" + customSeparatorString.charAt(2);
-    }
-
-    private static void checkNumbersIsEmpty(ArrayList<Integer> numbers) {
-        if (numbers.isEmpty()) {
-            throw new IllegalArgumentException("숫자가 입력되지 않았습니다. 계산을 위해 숫자(양수)와 구분자를 입력해주세요.");
-        }
     }
 }
