@@ -3,12 +3,14 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    public static Integer sumNumbers(ArrayList<Integer> numbers) {
-        int sum = 0;
+    private Integer sum = 0;
+    public void sumNumbers(ArrayList<Integer> numbers) {
         for (Integer number : numbers) {
-            sum = sum + number;
+            this.sum = this.sum + number;
         }
+    }
 
-        return sum;
+    public Integer getSum() {
+        return this.sum;
     }
 }
