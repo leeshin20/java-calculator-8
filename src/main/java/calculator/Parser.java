@@ -8,7 +8,7 @@ public class Parser {
     public static ArrayList<Integer> splitBySeparator(String equation) {
         equation = checkCustomSeparator(equation);
         ArrayList<Integer> numbers = new ArrayList<>();
-        String[] stringNumbers = equation.split("separator");
+        String[] stringNumbers = equation.split(separator);
 
         for (String stringNum : stringNumbers) {
             int number;
