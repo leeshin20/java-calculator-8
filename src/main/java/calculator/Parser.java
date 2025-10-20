@@ -36,10 +36,10 @@ public class Parser {
     }
 
     private static String checkCustomSeparator(String equation) {
-        String customSeparateString = equation.substring(0,4);
-        if (customSeparateString.startsWith("//") && customSeparateString.endsWith("\n")) {
-            addCustomSeparator(equation.substring(0,4));
-            return equation.substring(4);
+        String customSeparateString = equation.substring(0,5);
+        if (customSeparateString.startsWith("//") && customSeparateString.endsWith("\\n")) {
+            addCustomSeparator(equation.substring(0,5));
+            return equation.substring(5);
         }
         return equation;
     }
